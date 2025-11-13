@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ team.name }} - Professional CTF Team from HUTECH</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-brand">
+        <img src="{{ team.logo }}" alt="team logo" class="logo">
+        <div class="header-title">
+          <h1>{{ team.name }}</h1>
+          <p class="tagline">{{ team.tagline }}</p>
+        </div>
+      </div>
+      <nav class="nav-menu">
+        <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('team') }}" class="nav-link">Team</a>
+        <a href="{{ url_for('writeups') }}" class="nav-link">Writeups</a>
+        <a href="{{ team.ctftime }}" target="_blank" class="nav-link">CTFtime</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h2 class="hero-title">CTF Team từ HUTECH</h2>
+          <p class="hero-subtitle">Sinh viên năm nhất tham gia CTF và bảo mật</p>
+          <div class="hero-badges">
+            <span class="badge">{{ team.skills[0] }}</span>
+            <span class="badge">{{ team.skills[1] }}</span>
+            <span class="badge">{{ team.skills[2] }}</span>
+          </div>
+          <div class="hero-buttons">
+            <a href="{{ url_for('team') }}" class="btn btn-primary">Xem Đội Ngũ</a>
+            <a href="{{ team.ctftime }}" target="_blank" class="btn btn-secondary">CTFtime Profile</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-number">{{ team.members|length }}</div>
+            <div class="stat-label">Thành viên</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{ writeups|length + 4 }}</div>
+            <div class="stat-label">Write-ups</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{ team.club.achievements|length }}</div>
+            <div class="stat-label">Giải Thưởng</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Club Section -->
+      <section class="info-section club-section">
+        <h2>Câu lạc bộ An Ninh Mạng HUTECH</h2>
+        <p class="section-subtitle">Nơi sinh viên học và chia sẻ kiến thức bảo mật</p>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Giới Thiệu</h3>
+            <p>Câu lạc bộ dành cho sinh viên yêu thích an niệm mạng, CTF và bảo mật</p>
+            <p><strong>Năm thành lập:</strong> {{ team.club.founded }}</p>
+            <p><strong>Số thành viên:</strong> {{ team.club.members_count }}+</p>
+          </div>
+          <div class="info-card">
+            <h3>Thành Tích</h3>
+            <ul class="achievement-list">
+              {% for achievement in team.club.achievements %}
+                <li>{{ achievement }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Liên Hệ</h3>
+            <p><strong>Email:</strong> {{ team.club.email }}</p>
+            <p><strong>Website:</strong> <a href="{{ team.university.website }}" target="_blank">Đại học HUTECH</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Preview -->
+      <section class="team-preview">
+        <h2>Đội Ngũ</h2>
+        <div class="team-showcase">
+          {% for m in team.members[:4] %}
+            <div class="showcase-card">
+              <div class="showcase-avatar">
+                {% if m.avatar %}
+                  <img src="{{ m.avatar }}" alt="{{ m.name }}">
+                {% else %}
+                  <div class="avatar-placeholder">{{ m.name[0].upper() }}</div>
+                {% endif %}
+              </div>
+              <div class="showcase-info">
+                <h4>{{ m.name }}</h4>
+                <p class="showcase-role">{{ m.role }}</p>
+                <span class="showcase-handle">@{{ m.handle }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% if team.members|length > 4 %}
+        <div style="text-align:center;margin-top:32px;">
+          <a href="{{ url_for('team') }}" class="btn btn-outline">Xem Tất Cả Thành Viên ({{ team.members|length }}) →</a>
+        </div>
+        {% endif %}
+      </section>
+
+      <!-- Skills Section -->
+      <section class="skills-section">
+        <h2>Lĩnh Vực Chuyên Môn</h2>
+        <p class="section-subtitle">Chúng tôi thành thạo trong các lĩnh vực bảo mật</p>
+        <div class="skills-grid">
+          {% for skill in team.skills %}
+            <div class="skill-card">
+              <h4>{{ skill }}</h4>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>{{ team.name }}</h4>
+          <p>Professional CTF Team from HUTECH</p>
+        </div>
+        <div class="footer-section">
+          <h4>Liên Kết</h4>
+          <ul>
+            <li><a href="{{ team.ctftime }}">CTFtime</a></li>
+            <li><a href="{{ team.university.website }}">HUTECH</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Mạng Xã Hội</h4>
+          <div class="social-links">
+            {% for social, url in team.socials.items() %}
+              {% if url != '#' %}
+                <a href="{{ url }}" target="_blank" class="social-link">{{ social }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 {{ team.name }} - HUTECH Cybersecurity Team. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

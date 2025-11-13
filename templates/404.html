@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>404 - Page Not Found</title>
+        <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/logo.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <style>
+            .error-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 80vh;
+                flex-direction: column;
+                text-align: center;
+            }
+            .error-code {
+                font-size: 120px;
+                font-weight: bold;
+                background: linear-gradient(90deg, #00ff41, #06b6d4, #a78bfa);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin: 0;
+                text-shadow: 0 0 40px rgba(0,255,65,0.3);
+                animation: color-shift 8s ease-in-out infinite;
+            }
+            .error-title {
+                font-size: 32px;
+                color: #06b6d4;
+                margin: 20px 0;
+            }
+            .error-message {
+                font-size: 18px;
+                color: var(--muted);
+                margin-bottom: 40px;
+                max-width: 500px;
+            }
+            .back-link {
+                display: inline-block;
+                padding: 12px 24px;
+                background: linear-gradient(135deg, rgba(0,255,65,0.2) 0%, rgba(6,182,212,0.2) 100%);
+                border: 2px solid #00ff41;
+                border-radius: 8px;
+                color: #00ff41;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+            .back-link:hover {
+                box-shadow: 0 0 20px rgba(0,255,65,0.4);
+                transform: translateY(-2px);
+            }
+        </style>
+    </head>
+    <body>
+        <header class="site-header">
+        <img src="{{ team.logo }}" alt="team logo" class="logo">
+        <h1>{{ team.name }}</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('team') }}">Team</a>
+            <a href="{{ url_for('writeups') }}">Writeups</a>
+        </nav>
+        </header>
+
+        <main class="container">
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Page Not Found</h2>
+            <p class="error-message">The page you're looking for doesn't exist or has been moved. Return to safety below.</p>
+            <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+        </div>
+        </main>
+
+        <footer class="site-footer">
+        <p>&copy; {{ team.name }} — Page not found</p>
+        </footer>
+
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>
