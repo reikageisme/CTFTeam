@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A professional CTF team from HUTECH University, specializing in web security, reverse engineering, binary exploitation, and forensics.">
+    <title>6h4T9pTpR0 - CTF Team Portfolio</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="6h4T9pTpR0" class="team-logo">
+                <div class="brand-text">
+                    <h1>6h4T9pTpR0</h1>
+                    <p class="tagline" data-lang-vi="Bảo mật qua Capture The Flag" data-lang-en="Security Through Capture The Flag" data-lang-zh="通过 Capture The Flag 保护安全" data-lang-ru="Безопасность через Capture The Flag">Bảo mật qua Capture The Flag</p>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-lang-vi="Trang chủ" data-lang-en="Home" data-lang-zh="主页" data-lang-ru="Главная">Trang chủ</a></li>
+                <li><a href="#team" class="nav-link" data-lang-vi="Đội ngũ" data-lang-en="Team" data-lang-zh="团队" data-lang-ru="Команда">Đội ngũ</a></li>
+                <li><a href="#achievements" class="nav-link" data-lang-vi="Thành tích" data-lang-en="Achievements" data-lang-zh="成就" data-lang-ru="Достижения">Thành tích</a></li>
+                <li><a href="#writeups" class="nav-link" data-lang-vi="Write-ups" data-lang-en="Write-ups" data-lang-zh="Write-ups" data-lang-ru="Write-ups">Write-ups</a></li>
+                <li class="lang-switcher">
+                    <div class="relative">
+                        <button id="lang-toggle" class="nav-link lang-toggle-btn flex items-center gap-2">
+                            <span id="lang-icon">🇻🇳</span>
+                            <span id="lang-code">VI</span>
+                            <svg class="w-3 h-3 ml-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="lang-dropdown" class="lang-dropdown hidden">
+                            <button class="lang-option" data-lang="vi">
+                                <span class="lang-flag">🇻🇳</span>
+                                <span>Tiếng Việt</span>
+                            </button>
+                            <button class="lang-option" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span>English</span>
+                            </button>
+                            <button class="lang-option" data-lang="zh">
+                                <span class="lang-flag">🇨🇳</span>
+                                <span>中文</span>
+                            </button>
+                            <button class="lang-option" data-lang="ru">
+                                <span class="lang-flag">🇷🇺</span>
+                                <span>Русский</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-circle"></div>
+            <h1 class="hero-title">6h4T9pTpR0</h1>
+            <p class="hero-subtitle" data-lang-vi="Đội Cybersecurity HUTECH" data-lang-en="HUTECH Cybersecurity Team" data-lang-zh="HUTECH 网络安全团队" data-lang-ru="Команда кибербезопасности HUTECH">Đội Cybersecurity HUTECH</p>
+            <p class="hero-description" data-lang-vi="Một đội CTF chuyên nghiệp từ Đại học HUTECH, chuyên về bảo mật web, kỹ thuật đảo ngược, khai thác nhị phân và phân tích kỹ thuật số." data-lang-en="A professional CTF team from HUTECH University, specializing in web security, reverse engineering, binary exploitation, and forensics." data-lang-zh="来自 HUTECH 大学的专业 CTF 团队，专注于 Web 安全、逆向工程、二进制利用和数字取证。" data-lang-ru="Профессиональная CTF команда из университета HUTECH, специализирующаяся на безопасности веб-приложений, обратной разработке, эксплуатации бинарных файлов и форензике.">
+                Một đội CTF chuyên nghiệp từ Đại học HUTECH, chuyên về bảo mật web, kỹ thuật đảo ngược, khai thác nhị phân và phân tích kỹ thuật số.
+            </p>
+            <div class="hero-buttons">
+                <a href="#team" class="btn btn-primary" data-lang-vi="Thành viên →" data-lang-en="Members →" data-lang-zh="成员 →" data-lang-ru="Участники →">Thành viên →</a>
+                <a href="https://ctftime.org/team/412747/" target="_blank" class="btn btn-secondary">CTFtime Profile</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-box">
+                <i class="fas fa-users"></i>
+                <h3 data-lang-vi="Đội ngũ" data-lang-en="Team" data-lang-zh="团队" data-lang-ru="Команда">Đội ngũ</h3>
+                <p><span id="member-count">2</span> <span data-lang-vi="Thành viên" data-lang-en="Members" data-lang-zh="成员" data-lang-ru="Участников">Thành viên</span></p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-trophy"></i>
+                <h3 data-lang-vi="Thành tích" data-lang-en="Achievements" data-lang-zh="成就" data-lang-ru="Достижения">Thành tích</h3>
+                <p><span id="achievement-count">4</span> <span data-lang-vi="Thành tích" data-lang-en="Achievements" data-lang-zh="成就" data-lang-ru="Достижений">Thành tích</span></p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-code"></i>
+                <h3 data-lang-vi="Kỹ năng" data-lang-en="Skills" data-lang-zh="技能" data-lang-ru="Навыки">Kỹ năng</h3>
+                <p><span id="skill-count">7</span> <span data-lang-vi="Kỹ năng" data-lang-en="Skills" data-lang-zh="技能" data-lang-ru="Навыков">Kỹ năng</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 data-lang-vi="Kỹ năng" data-lang-en="Skills" data-lang-zh="技能" data-lang-ru="Навыки">Kỹ năng</h2>
+            <div class="skills-grid" id="skills-container">
+                <!-- Skills will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Preview Section -->
+    <section class="achievements-section" id="achievements">
+        <div class="container">
+            <h2 data-lang-vi="Thành tích nổi bật" data-lang-en="Key Achievements" data-lang-zh="主要成就" data-lang-ru="Ключевые достижения">Thành tích nổi bật</h2>
+            <div class="achievements-grid" id="achievements-container">
+                <!-- Achievements will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTFtime Stats Section -->
+    <section class="ctftime-section" id="ctftime">
+        <div class="container">
+            <h2 data-lang-vi="Thống kê CTFtime" data-lang-en="CTFtime Statistics" data-lang-zh="CTFtime 统计" data-lang-ru="Статистика CTFtime">Thống kê CTFtime</h2>
+            <div id="ctftime-stats"></div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <h2 data-lang-vi="Đội ngũ của chúng tôi" data-lang-en="Our Team" data-lang-zh="我们的团队" data-lang-ru="Наша команда">Đội ngũ của chúng tôi</h2>
+            <div class="members-grid" id="team-container">
+                <!-- Team members will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Write-ups Section -->
+    <section class="writeups-section" id="writeups">
+        <div class="container">
+            <h2 data-lang-vi="Write-ups & Blog" data-lang-en="Write-ups & Blog" data-lang-zh="Write-ups & 博客" data-lang-ru="Write-ups & Блог">Write-ups & Blog</h2>
+            <div class="writeups-grid" id="writeups-container">
+                <div class="writeup-card">
+                    <h3 data-lang-vi="Sắp ra mắt" data-lang-en="Coming Soon" data-lang-zh="即将推出" data-lang-ru="Скоро">Sắp ra mắt</h3>
+                    <p data-lang-vi="Chúng tôi đang chuẩn bị các write-ups chi tiết về các thử thách CTF và các bài viết về bảo mật." data-lang-en="We are preparing detailed write-ups of CTF challenges and security articles." data-lang-zh="我们正在准备详细的 CTF 挑战和安全文章。" data-lang-ru="Мы готовим подробные write-ups из CTF и статьи по безопасности.">Chúng tôi đang chuẩn bị các write-ups chi tiết về các thử thách CTF và các bài viết về bảo mật.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>6h4T9pTpR0</h3>
+                <p data-lang-vi="Đội Cybersecurity HUTECH" data-lang-en="HUTECH Cybersecurity Team" data-lang-zh="HUTECH 网络安全团队" data-lang-ru="Команда кибербезопасности HUTECH">Đội Cybersecurity HUTECH</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-lang-vi="Liên hệ" data-lang-en="Contact" data-lang-zh="联系" data-lang-ru="Контакты">Liên hệ</h3>
+                <ul>
+                    <li><a href="mailto:contact@example.com" data-lang-vi="Email" data-lang-en="Email" data-lang-zh="电子邮件" data-lang-ru="Электронная почта">Email</a></li>
+                    <li><a href="https://ctftime.org/team/412747/">CTFtime</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-lang-vi="Mạng xã hội" data-lang-en="Social" data-lang-zh="社交媒体" data-lang-ru="Социальные сети">Mạng xã hội</h3>
+                <div class="social-links">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://discord.gg/yK6fJrEb" target="_blank" title="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://ctftime.org/team/412747/" target="_blank" title="CTFtime">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 6h4T9pTpR0. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/ctftime.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
